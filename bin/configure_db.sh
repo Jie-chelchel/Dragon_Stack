@@ -1,11 +1,12 @@
 #!/bin/bash
-echo "Configuring dragonstackdb"
 
-dropdb -U node_user dragonstackdb
-createdb -U node_user dragonstackdb
+echo "Configuring dragonsdb"
+
+dropdb -U node_user dragonsdb
+createdb -U node_user dragonsdb
+
+psql -U node_user dragonsdb < ./bin/sql/generation.sql
+psql -U node_user dragonsdb < ./bin/sql/dragon.sql
 
 
-psql -U node_user dragonstackdb < ./bin/sql/generation.sql
-psql -U node_user dragonstackdb < ./bin/sql/dragon.sql
-
-echo  "dragonstackdb configured"
+echo "dragonsdb configured"
